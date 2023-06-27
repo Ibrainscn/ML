@@ -1,0 +1,40 @@
+{
+    "mlflow_id": "test_run_v0",
+    "mlflow_io": {
+        "input_dir": "exp_input",
+        "output_dir": "exp_output_lstm_4compare"
+    },
+    "mlflow_data": {
+        "train_val_test_split_ratio": [[0, 0.4], [0.4, 0.8], [0.4, 0.8]],
+        "win_size": 10,
+        "stride": 1
+    },
+    "mlflow_model": {
+        "model_name": "LSTM",
+        "model_params": {
+            "hidden_size": 32,
+            "num_layers": 3,
+            "bidirectional": false,
+            "dropout": 0.4
+        }
+    },
+    "mlflow_runner": {
+        "num_epochs": 100,
+        "val_freq": 1,
+        "batch_size": 128,
+        "loss": "bce",
+        "eval_metric": ["pr_auc"],
+        "optimizer": "adam",
+        "lr": 0.001,
+        "run_mode": "train_val_test",
+        "predict_model": ["best"]
+    },
+    "mlflow_save": {
+        "save_freq": 1,
+        "save_prediction_results": true,
+        "save_validation_results": true,
+        "save_model": true,
+        "save_model_torchscript": true,
+        "save_checkpoint": true
+    }
+}
